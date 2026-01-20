@@ -12,7 +12,7 @@
     <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/discord-logo.png">
 </head>
 <body>
-    <!-- Navbar Simplificada -->
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
@@ -22,14 +22,25 @@
                 </div>
             </div>
             
-            <button class="btn-acquire" onclick="openPurchaseModal()">
-                <i class="fas fa-shopping-cart"></i> Adquira o seu!
+            <div class="nav-links">
+                <a href="#home">Início</a>
+                <a href="#stats">Estatísticas</a>
+                <a href="#why">Por que nós?</a>
+                <a href="#story">História</a>
+                <a href="#products">Produtos</a>
+                <a href="#pricing" class="btn-purchase">
+                    <i class="fas fa-shopping-cart"></i> Comprar Agora
+                </a>
+            </div>
+            
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
@@ -43,32 +54,13 @@
                 
                 <p class="hero-subtitle">
                     Sistemas automatizados de tickets, sets, cargos e moderação.
-                    Tudo em um só bot, simples e poderoso.
+                    Escolha módulos individuais ou o pacote completo.
                 </p>
                 
-                <div class="hero-features">
-                    <div class="feature">
-                        <i class="fas fa-ticket-alt"></i>
-                        <span>Sistema de Tickets</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-user-tag"></i>
-                        <span>Sistema de Sets</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-users-cog"></i>
-                        <span>Controle de Cargos</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Moderação Avançada</span>
-                    </div>
-                </div>
-                
                 <div class="hero-buttons">
-                    <button class="btn-primary" onclick="openPurchaseModal()">
-                        <i class="fas fa-rocket"></i> Adquirir Agora
-                    </button>
+                    <a href="#pricing" class="btn-primary">
+                        <i class="fas fa-rocket"></i> Ver Planos
+                    </a>
                     <a href="https://discord.com/oauth2/authorize?client_id=SEU_CLIENT_ID" class="btn-secondary" target="_blank">
                         <i class="fas fa-robot"></i> Testar Demo
                     </a>
@@ -76,53 +68,38 @@
             </div>
             
             <div class="hero-visual">
-                <div class="bot-demo">
-                    <div class="demo-header">
-                        <div class="demo-dots">
-                            <span class="demo-dot red"></span>
-                            <span class="demo-dot yellow"></span>
-                            <span class="demo-dot green"></span>
-                        </div>
-                        <span class="demo-title">WaveX Dashboard</span>
+                <div class="bot-interface">
+                    <div class="bot-header">
+                        <div class="bot-dot red"></div>
+                        <div class="bot-dot yellow"></div>
+                        <div class="bot-dot green"></div>
+                        <span>WaveX Dashboard</span>
                     </div>
-                    
-                    <div class="demo-content">
-                        <div class="demo-message left">
-                            <div class="message-avatar">W</div>
-                            <div class="message-content">
-                                <strong>WaveX Bot</strong>
-                                <p>Olá! Eu sou o WaveX, seu assistente de servidor. O que posso ajudar hoje?</p>
-                            </div>
+                    <div class="bot-content">
+                        <div class="bot-module active">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Tickets</span>
                         </div>
-                        
-                        <div class="demo-message right">
-                            <div class="message-content">
-                                <strong>Você</strong>
-                                <p>Quero configurar o sistema de tickets!</p>
-                            </div>
-                            <div class="message-avatar">V</div>
+                        <div class="bot-module">
+                            <i class="fas fa-user-tag"></i>
+                            <span>Sets</span>
                         </div>
-                        
-                        <div class="demo-message left">
-                            <div class="message-avatar">W</div>
-                            <div class="message-content">
-                                <strong>WaveX Bot</strong>
-                                <p>Perfeito! Use <code>!setup tickets</code> e o sistema será configurado automaticamente. 🎫</p>
-                            </div>
+                        <div class="bot-module">
+                            <i class="fas fa-users-cog"></i>
+                            <span>Cargos</span>
                         </div>
-                    </div>
-                    
-                    <div class="demo-input">
-                        <input type="text" placeholder="Digite !setup tickets para começar..." disabled>
-                        <button disabled><i class="fas fa-paper-plane"></i></button>
+                        <div class="bot-module">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Moderação</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="live-stats">
+    <!-- Live Stats Section -->
+    <section id="stats" class="live-stats">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-card">
@@ -130,28 +107,40 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-number" id="activeUsers">500+</h3>
-                        <p class="stat-label">Servidores Ativos</p>
+                        <h3 class="stat-number" id="activeUsers">1,247</h3>
+                        <p class="stat-label">Usuários Ativos</p>
+                        <div class="stat-trend up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+12% hoje</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <i class="fas fa-bolt"></i>
+                        <i class="fas fa-shopping-cart"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-number" id="uptime">99.9%</h3>
-                        <p class="stat-label">Uptime Garantido</p>
+                        <h3 class="stat-number" id="totalSales">589</h3>
+                        <p class="stat-label">Bots Vendidos</p>
+                        <div class="stat-trend up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+8 esta semana</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <i class="fas fa-headset"></i>
+                        <i class="fas fa-server"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-number" id="support">24/7</h3>
-                        <p class="stat-label">Suporte</p>
+                        <h3 class="stat-number" id="activeBots">2,841</h3>
+                        <p class="stat-label">Bots Online</p>
+                        <div class="stat-trend up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>99.9% uptime</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -162,64 +151,526 @@
                     <div class="stat-content">
                         <h3 class="stat-number" id="rating">4.9</h3>
                         <p class="stat-label">Avaliação Média</p>
+                        <div class="stat-trend">
+                            <i class="fas fa-star"></i>
+                            <span>+156 reviews</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <!-- Why Choose Us Section -->
+    <section id="why" class="why-choose">
         <div class="container">
-            <h2 class="section-title">✨ Tudo o que você precisa em <span class="gradient-text">um só lugar</span></h2>
+            <div class="section-header">
+                <h2 class="section-title">🤔 Por que escolher a <span class="gradient-text">WaveX</span>?</h2>
+                <p class="section-subtitle">Descubra o que nos torna diferentes</p>
+            </div>
             
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-ticket-alt"></i>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>Sistema de Tickets</h3>
-                    <p>Sistema completo com painel, fechamento automático, logs e controle por staff.</p>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Painel com botão de abertura</li>
-                        <li><i class="fas fa-check"></i> Fechamento automático</li>
-                        <li><i class="fas fa-check"></i> Sistema de logs completo</li>
+                    <h3>Desempenho Incomparável</h3>
+                    <p>Nossos bots são otimizados para máximo desempenho com 0% de lag, mesmo em servidores com 10k+ membros.</p>
+                    <ul class="why-features">
+                        <li><i class="fas fa-check"></i> Response time < 50ms</li>
+                        <li><i class="fas fa-check"></i> 99.9% Uptime garantido</li>
+                        <li><i class="fas fa-check"></i> Escalabilidade ilimitada</li>
                     </ul>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-tag"></i>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Sistema de Sets</h3>
-                    <p>Aprovação automática de sets com alteração de nickname e atribuição de cargos.</p>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Modal de coleta de dados</li>
-                        <li><i class="fas fa-check"></i> Aprovação/recusa por staff</li>
-                        <li><i class="fas fa-check"></i> Alteração automática de nick</li>
+                    <h3>Segurança de Nível Empresarial</h3>
+                    <p>Código auditado, proteção contra DDoS, backups automáticos e criptografia de ponta a ponta.</p>
+                    <ul class="why-features">
+                        <li><i class="fas fa-check"></i> Proteção contra exploits</li>
+                        <li><i class="fas fa-check"></i> Backups automáticos</li>
+                        <li><i class="fas fa-check"></i> DDoS Protection</li>
                     </ul>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users-cog"></i>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-headset"></i>
                     </div>
-                    <h3>Controle de Cargos</h3>
-                    <p>Gerenciamento hierárquico de cargos com atribuição automática e sistema de promoções.</p>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Sistema hierárquico</li>
-                        <li><i class="fas fa-check"></i> Atribuição automática</li>
-                        <li><i class="fas fa-check"></i> Sistema de promoções</li>
+                    <h3>Suporte que Faz a Diferença</h3>
+                    <p>Equipe disponível 24/7 com tempo médio de resposta de 15 minutos. Resolvemos qualquer problema.</p>
+                    <ul class="why-features">
+                        <li><i class="fas fa-check"></i> Suporte 24/7</li>
+                        <li><i class="fas fa-check"></i> Response time < 15min</li>
+                        <li><i class="fas fa-check"></i> Tutoriais em vídeo</li>
                     </ul>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="story" class="our-story">
+        <div class="container">
+            <div class="story-header">
+                <h2 class="section-title">📖 Nossa <span class="gradient-text">História</span></h2>
+                <p class="section-subtitle">De uma ideia simples à referência em bots Discord</p>
+            </div>
             
-            <div class="cta-section">
-                <h3>Pronto para transformar seu servidor?</h3>
-                <p>Adquira agora e tenha todas essas features em um só bot!</p>
-                <button class="btn-cta" onclick="openPurchaseModal()">
-                    <i class="fas fa-bolt"></i> Adquirir WaveX
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 • Janeiro</div>
+                    <div class="timeline-content">
+                        <h3>🌱 O Início</h3>
+                        <p>Tudo começou com um problema: administrar servidores grandes era caótico. Desenvolvemos nosso primeiro sistema de tickets para um servidor de 5k membros.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 • Junho</div>
+                    <div class="timeline-content">
+                        <h3>🚀 Primeiro Cliente</h3>
+                        <p>Hospital APP se tornou nosso primeiro cliente oficial. Desenvolvemos sistemas customizados que reduziram o trabalho manual da staff em 80%.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 • Março</div>
+                    <div class="timeline-content">
+                        <h3>🏆 Reconhecimento</h3>
+                        <p>Chegamos a 100 servidores ativos. Nossos bots estavam sendo usados em comunidades de até 50k membros com performance impecável.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 • Setembro</div>
+                    <div class="timeline-content">
+                        <h3>💼 Expansão</h3>
+                        <p>Lançamos a plataforma modular - agora cada servidor podia escolher exatamente o que precisava, sem pagar por features desnecessárias.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 • Hoje</div>
+                    <div class="timeline-content">
+                        <h3>⭐ Referência</h3>
+                        <p>Mais de 500 servidores ativos, 2.8k+ bots online e uma equipe dedicada de 8 desenvolvedores. Continuamos inovando todos os dias.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🎮 Nossos <span class="gradient-text">Produtos</span></h2>
+                <p class="section-subtitle">Conheça nossos módulos especializados</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <h3 class="product-title">Sistema de Tickets</h3>
+                    <p class="product-description">
+                        Sistema completo de tickets com painel, fechamento automático, logs, 
+                        múltiplos canais e controle por staff.
+                    </p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Painel com botão de abertura</li>
+                        <li><i class="fas fa-check"></i> Fechamento automático</li>
+                        <li><i class="fas fa-check"></i> Sistema de logs completo</li>
+                        <li><i class="fas fa-check"></i> Multi-staff support</li>
+                        <li><i class="fas fa-check"></i> Categorias personalizáveis</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price">R$ 29,90</span>
+                        <span class="period">/ único</span>
+                    </div>
+                    <a href="#pricing" class="btn-product">
+                        <i class="fas fa-shopping-cart"></i> Adquirir Módulo
+                    </a>
+                </div>
+                
+                <div class="product-card featured">
+                    <div class="product-badge">MAIS VENDIDO</div>
+                    <div class="product-icon">
+                        <i class="fas fa-user-tag"></i>
+                    </div>
+                    <h3 class="product-title">Sistema de Sets</h3>
+                    <p class="product-description">
+                        Aprovação automática de sets com alteração de nickname, 
+                        atribuição de cargos e remoção automática de visitante.
+                    </p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Modal de coleta de dados</li>
+                        <li><i class="fas fa-check"></i> Aprovação/recusa por staff</li>
+                        <li><i class="fas fa-check"></i> Alteração automática de nick</li>
+                        <li><i class="fas fa-check"></i> Remoção de cargo visitante</li>
+                        <li><i class="fas fa-check"></i> Verificação de ID único</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price">R$ 34,90</span>
+                        <span class="period">/ único</span>
+                    </div>
+                    <a href="#pricing" class="btn-product">
+                        <i class="fas fa-bolt"></i> Adquirir Módulo
+                    </a>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3 class="product-title">Sistema de Cargos</h3>
+                    <p class="product-description">
+                        Gerenciamento hierárquico de cargos com atribuição automática, 
+                        promoções, permissões e sistema de hierarquia.
+                    </p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Sistema hierárquico</li>
+                        <li><i class="fas fa-check"></i> Atribuição automática</li>
+                        <li><i class="fas fa-check"></i> Sistema de promoções</li>
+                        <li><i class="fas fa-check"></i> Logs de alterações</li>
+                        <li><i class="fas fa-check"></i> Painel de controle</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price">R$ 24,90</span>
+                        <span class="period">/ único</span>
+                    </div>
+                    <a href="#pricing" class="btn-product">
+                        <i class="fas fa-shopping-cart"></i> Adquirir Módulo
+                    </a>
+                </div>
+            </div>
+            
+            <div class="products-cta">
+                <p><i class="fas fa-gem"></i> <strong>Combo Completo:</strong> Adquira todos os módulos juntos e economize 30%!</p>
+                <a href="#pricing" class="btn-cta">
+                    <i class="fas fa-star"></i> Ver Combo Completo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section (Agora como aba/área separada) -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">💰 <span class="gradient-text">Planos</span> & Preços</h2>
+                <p class="section-subtitle">Escolha o plano perfeito para seu servidor</p>
+            </div>
+            
+            <div class="pricing-tabs">
+                <button class="tab-btn active" onclick="openTab('individual')">
+                    <i class="fas fa-puzzle-piece"></i> Módulos Individuais
                 </button>
+                <button class="tab-btn" onclick="openTab('combo')">
+                    <i class="fas fa-gem"></i> Combo Completo
+                </button>
+                <button class="tab-btn" onclick="openTab('custom')">
+                    <i class="fas fa-crown"></i> Personalizado
+                </button>
+            </div>
+            
+            <!-- Tab 1: Módulos Individuais -->
+            <div id="individual" class="tab-content active">
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <div class="module-header">
+                            <div class="module-icon">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <h3>Sistema de Tickets</h3>
+                        </div>
+                        
+                        <div class="module-features">
+                            <p><i class="fas fa-check"></i> Painel com botão de abertura</p>
+                            <p><i class="fas fa-check"></i> Fechamento automático</p>
+                            <p><i class="fas fa-check"></i> Sistema de logs completo</p>
+                            <p><i class="fas fa-check"></i> Multi-staff support</p>
+                            <p><i class="fas fa-check"></i> Categorias personalizáveis</p>
+                        </div>
+                        
+                        <div class="module-price">
+                            <span class="price">R$ 29,90</span>
+                            <span class="period">/ único</span>
+                        </div>
+                        
+                        <button class="btn-module" onclick="selectModule('tickets')">
+                            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                    
+                    <div class="module-card featured">
+                        <div class="module-badge">POPULAR</div>
+                        <div class="module-header">
+                            <div class="module-icon">
+                                <i class="fas fa-user-tag"></i>
+                            </div>
+                            <h3>Sistema de Sets</h3>
+                        </div>
+                        
+                        <div class="module-features">
+                            <p><i class="fas fa-check"></i> Modal de coleta de dados</p>
+                            <p><i class="fas fa-check"></i> Aprovação/recusa por staff</p>
+                            <p><i class="fas fa-check"></i> Alteração automática de nick</p>
+                            <p><i class="fas fa-check"></i> Remoção de cargo visitante</p>
+                            <p><i class="fas fa-check"></i> Verificação de ID único</p>
+                        </div>
+                        
+                        <div class="module-price">
+                            <span class="price">R$ 34,90</span>
+                            <span class="period">/ único</span>
+                        </div>
+                        
+                        <button class="btn-module featured" onclick="selectModule('sets')">
+                            <i class="fas fa-bolt"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-header">
+                            <div class="module-icon">
+                                <i class="fas fa-users-cog"></i>
+                            </div>
+                            <h3>Sistema de Cargos</h3>
+                        </div>
+                        
+                        <div class="module-features">
+                            <p><i class="fas fa-check"></i> Sistema hierárquico</p>
+                            <p><i class="fas fa-check"></i> Atribuição automática</p>
+                            <p><i class="fas fa-check"></i> Sistema de promoções</p>
+                            <p><i class="fas fa-check"></i> Logs de alterações</p>
+                            <p><i class="fas fa-check"></i> Painel de controle</p>
+                        </div>
+                        
+                        <div class="module-price">
+                            <span class="price">R$ 24,90</span>
+                            <span class="period">/ único</span>
+                        </div>
+                        
+                        <button class="btn-module" onclick="selectModule('cargos')">
+                            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="modules-summary">
+                    <div class="summary-card">
+                        <h4><i class="fas fa-shopping-cart"></i> Seu Carrinho</h4>
+                        <div id="cartItems">
+                            <p class="empty-cart">Nenhum módulo selecionado</p>
+                        </div>
+                        <div class="summary-total">
+                            <span>Total:</span>
+                            <span id="cartTotal">R$ 0,00</span>
+                        </div>
+                        <button class="btn-checkout" onclick="checkout()">
+                            <i class="fas fa-lock"></i> Finalizar Compra
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab 2: Combo Completo -->
+            <div id="combo" class="tab-content">
+                <div class="combo-hero">
+                    <div class="combo-badge">
+                        <i class="fas fa-gem"></i> ECONOMIZE 30%
+                    </div>
+                    <h3>WaveX Combo Completo</h3>
+                    <p>Todos os módulos + recursos exclusivos em um único pacote</p>
+                </div>
+                
+                <div class="combo-grid">
+                    <div class="combo-features">
+                        <h4><i class="fas fa-star"></i> Inclui tudo dos módulos individuais +</h4>
+                        <div class="features-list">
+                            <p><i class="fas fa-check"></i> Sistema de Moderação Avançada</p>
+                            <p><i class="fas fa-check"></i> Dashboard Web Personalizável</p>
+                            <p><i class="fas fa-check"></i> Logs Automáticos em Tempo Real</p>
+                            <p><i class="fas fa-check"></i> API para Integrações</p>
+                            <p><i class="fas fa-check"></i> Suporte Prioritário 24/7</p>
+                            <p><i class="fas fa-check"></i> Updates Vitalícios Gratuitos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="combo-pricing">
+                        <div class="pricing-card-combo">
+                            <div class="pricing-old">
+                                <span>De: R$ 89,70</span>
+                            </div>
+                            <div class="pricing-new">
+                                <span class="price">R$ 62,90</span>
+                                <span class="period">/ único</span>
+                            </div>
+                            <div class="pricing-savings">
+                                <i class="fas fa-piggy-bank"></i>
+                                <span>Economia de R$ 26,80</span>
+                            </div>
+                            <button class="btn-combo" onclick="selectCombo()">
+                                <i class="fas fa-gem"></i> Adquirir Combo Completo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab 3: Personalizado -->
+            <div id="custom" class="tab-content">
+                <div class="custom-hero">
+                    <h3><i class="fas fa-crown"></i> Bot Personalizado</h3>
+                    <p>Precisa de algo exclusivo para seu servidor?</p>
+                </div>
+                
+                <div class="custom-form">
+                    <div class="form-group">
+                        <label><i class="fas fa-server"></i> Tamanho do seu servidor</label>
+                        <div class="size-options">
+                            <button class="size-option">Até 1k membros</button>
+                            <button class="size-option">1k - 5k membros</button>
+                            <button class="size-option">5k - 20k membros</button>
+                            <button class="size-option">+20k membros</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-cogs"></i> Funcionalidades desejadas</label>
+                        <div class="features-check">
+                            <label>
+                                <input type="checkbox" checked>
+                                <span>Sistema de Tickets</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" checked>
+                                <span>Sistema de Sets</span>
+                            </label>
+                            <label>
+                                <input type="checkbox">
+                                <span>Sistema de Cargos</span>
+                            </label>
+                            <label>
+                                <input type="checkbox">
+                                <span>Sistema de Moderação</span>
+                            </label>
+                            <label>
+                                <input type="checkbox">
+                                <span>Dashboard Web</span>
+                            </label>
+                            <label>
+                                <input type="checkbox">
+                                <span>API Personalizada</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-paint-brush"></i> Personalizações extras</label>
+                        <textarea placeholder="Descreva o que você precisa..."></textarea>
+                    </div>
+                    
+                    <button class="btn-custom" onclick="requestCustom()">
+                        <i class="fas fa-paper-plane"></i> Solicitar Orçamento
+                    </button>
+                </div>
+            </div>
+            
+            <div class="payment-info">
+                <h4><i class="fas fa-lock"></i> Pagamento 100% Seguro</h4>
+                <div class="payment-methods">
+                    <div class="method"><i class="fab fa-pix"></i> PIX</div>
+                    <div class="method"><i class="fab fa-cc-visa"></i> Cartão</div>
+                    <div class="method"><i class="fab fa-paypal"></i> PayPal</div>
+                    <div class="method"><i class="fab fa-bitcoin"></i> Crypto</div>
+                </div>
+                <p class="guarantee"><i class="fas fa-shield-alt"></i> Garantia de 7 dias para reembolso</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📞 <span class="gradient-text">Contato</span> & Suporte</h2>
+                <p class="section-subtitle">Precisa de ajuda? Estamos aqui para você!</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-methods">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <h3>Discord</h3>
+                        <p>Suporte imediato via tickets</p>
+                        <a href="https://discord.gg/seu-link" class="contact-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Entrar no Servidor
+                        </a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>Resposta em até 24 horas</p>
+                        <a href="mailto:contato@wavex.com" class="contact-link">
+                            <i class="fas fa-envelope"></i> contato@wavex.com
+                        </a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>Atendimento rápido</p>
+                        <a href="https://wa.me/5511999999999" class="contact-link" target="_blank">
+                            <i class="fas fa-phone"></i> +55 (11) 99999-9999
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3><i class="fas fa-question-circle"></i> Perguntas Frequentes</h3>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(1)">
+                            Como é feita a instalação?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>A instalação é totalmente automática. Após a compra, você recebe um link para adicionar o bot ao seu servidor e um painel de configuração web para personalizar as funcionalidades.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(2)">
+                            Posso testar antes de comprar?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sim! Oferecemos uma demonstração gratuita de 7 dias com todas as funcionalidades. Basta clicar em "Testar Demo" no topo da página.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(3)">
+                            E se eu não gostar?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Oferecemos garantia de 7 dias para reembolso. Se você não estiver satisfeito, devolvemos 100% do seu dinheiro.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -233,175 +684,87 @@
                         <span class="logo-icon">⚡</span>
                         <span class="logo-text">Wave<span class="logo-highlight">X</span></span>
                     </div>
-                    <p>O bot completo para seu servidor Discord</p>
+                    <p>Bots Discord profissionais para servidores de sucesso.</p>
                     <div class="social-links">
-                        <a href="https://discord.gg/seu-link" target="_blank">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                        <a href="https://github.com/seu-user" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="mailto:contato@wavex.com">
-                            <i class="fas fa-envelope"></i>
-                        </a>
+                        <a href="https://discord.gg/seu-link" target="_blank"><i class="fab fa-discord"></i></a>
+                        <a href="https://github.com/seu-user" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/seu-user" target="_blank"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-info">
-                    <h4>Suporte</h4>
-                    <p>Precisa de ajuda? Entre em contato:</p>
-                    <div class="contact-info">
-                        <p><i class="fab fa-discord"></i> Discord: wavex.support</p>
-                        <p><i class="fas fa-envelope"></i> Email: contato@wavex.com</p>
+                <div class="footer-links">
+                    <h4>Produtos</h4>
+                    <a href="#products">Sistema de Tickets</a>
+                    <a href="#products">Sistema de Sets</a>
+                    <a href="#products">Sistema de Cargos</a>
+                    <a href="#pricing">Combo Completo</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Links</h4>
+                    <a href="#home">Início</a>
+                    <a href="#why">Por que nós?</a>
+                    <a href="#story">História</a>
+                    <a href="#pricing">Comprar</a>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Receba novidades e ofertas</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Seu email">
+                        <button><i class="fas fa-paper-plane"></i></button>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2024 WaveX. Todos os direitos reservados.</p>
-                <p>Desenvolvido com ❤️ para a comunidade Discord</p>
+                <div class="footer-policies">
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Política de Reembolso</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Modal de Compra -->
-    <div id="purchaseModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-shopping-cart"></i> Adquira o WaveX</h2>
-                <button class="close-modal" onclick="closePurchaseModal()">&times;</button>
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Carrinho</h3>
+            <button class="close-cart" onclick="closeCart()">&times;</button>
+        </div>
+        <div class="cart-body" id="sidebarCartItems">
+            <!-- Itens do carrinho serão inseridos aqui -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="sidebarTotal">R$ 0,00</span>
             </div>
-            
-            <div class="modal-body">
-                <div class="pricing-options">
-                    <!-- Plano Básico -->
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>WaveX Básico</h3>
-                            <div class="price">
-                                <span class="amount">R$ 49,90</span>
-                                <span class="period">/ único</span>
-                            </div>
-                        </div>
-                        
-                        <div class="pricing-features">
-                            <p><i class="fas fa-check"></i> Sistema de Tickets</p>
-                            <p><i class="fas fa-check"></i> Sistema de Sets</p>
-                            <p><i class="fas fa-check"></i> Controle Básico de Cargos</p>
-                            <p><i class="fas fa-check"></i> Suporte por Email</p>
-                            <p><i class="fas fa-times"></i> Sistema de Moderação</p>
-                            <p><i class="fas fa-times"></i> Dashboard Web</p>
-                        </div>
-                        
-                        <button class="btn-select" onclick="selectPlan('basic')">
-                            <i class="fas fa-check"></i> Selecionar
-                        </button>
-                    </div>
-                    
-                    <!-- Plano Pro (Recomendado) -->
-                    <div class="pricing-card featured">
-                        <div class="plan-badge">MAIS POPULAR</div>
-                        <div class="pricing-header">
-                            <h3>WaveX Pro</h3>
-                            <div class="price">
-                                <span class="amount">R$ 89,90</span>
-                                <span class="period">/ único</span>
-                            </div>
-                            <p class="savings">Economize 40%</p>
-                        </div>
-                        
-                        <div class="pricing-features">
-                            <p><i class="fas fa-check"></i> Sistema de Tickets Completo</p>
-                            <p><i class="fas fa-check"></i> Sistema de Sets Avançado</p>
-                            <p><i class="fas fa-check"></i> Controle Completo de Cargos</p>
-                            <p><i class="fas fa-check"></i> Sistema de Moderação</p>
-                            <p><i class="fas fa-check"></i> Dashboard Web</p>
-                            <p><i class="fas fa-check"></i> Suporte Prioritário</p>
-                        </div>
-                        
-                        <button class="btn-select featured" onclick="selectPlan('pro')">
-                            <i class="fas fa-bolt"></i> Escolher Pro
-                        </button>
-                    </div>
-                    
-                    <!-- Plano Enterprise -->
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>WaveX Enterprise</h3>
-                            <div class="price">
-                                <span class="amount">R$ 149,90</span>
-                                <span class="period">/ único</span>
-                            </div>
-                        </div>
-                        
-                        <div class="pricing-features">
-                            <p><i class="fas fa-check"></i> Todos os recursos Pro</p>
-                            <p><i class="fas fa-check"></i> Bot Personalizado</p>
-                            <p><i class="fas fa-check"></i> Hosting Incluso</p>
-                            <p><i class="fas fa-check"></i> Manutenção Mensal</p>
-                            <p><i class="fas fa-check"></i> Suporte Dedicado 24/7</p>
-                            <p><i class="fas fa-check"></i> Updates Ilimitados</p>
-                        </div>
-                        
-                        <button class="btn-select" onclick="selectPlan('enterprise')">
-                            <i class="fas fa-crown"></i> Personalizar
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="payment-methods">
-                    <h3><i class="fas fa-lock"></i> Métodos de Pagamento</h3>
-                    <div class="methods-grid">
-                        <div class="method">
-                            <i class="fab fa-pix"></i>
-                            <span>PIX</span>
-                        </div>
-                        <div class="method">
-                            <i class="fab fa-cc-visa"></i>
-                            <span>Cartão</span>
-                        </div>
-                        <div class="method">
-                            <i class="fab fa-paypal"></i>
-                            <span>PayPal</span>
-                        </div>
-                        <div class="method">
-                            <i class="fab fa-bitcoin"></i>
-                            <span>Crypto</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="guarantee">
-                    <p><i class="fas fa-shield-alt"></i> <strong>Garantia de 7 dias:</strong> Se não gostar, devolvemos seu dinheiro!</p>
-                </div>
-            </div>
-            
-            <div class="modal-footer">
-                <button class="btn-close" onclick="closePurchaseModal()">
-                    <i class="fas fa-times"></i> Fechar
-                </button>
-            </div>
+            <button class="btn-checkout-sidebar" onclick="checkout()">
+                <i class="fas fa-lock"></i> Finalizar Compra
+            </button>
         </div>
     </div>
 
-    <!-- Modal de Confirmação -->
-    <div id="confirmModal" class="modal confirm-modal">
+    <!-- Purchase Modal -->
+    <div class="purchase-modal" id="purchaseModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2><i class="fas fa-check-circle"></i> Plano Selecionado!</h2>
-                <button class="close-modal" onclick="closeConfirmModal()">&times;</button>
+                <h2><i class="fas fa-check-circle"></i> Compra Confirmada!</h2>
+                <button class="close-modal" onclick="closePurchaseModal()">&times;</button>
             </div>
-            
-            <div class="modal-body" id="confirmContent">
-                <!-- Conteúdo será preenchido pelo JavaScript -->
+            <div class="modal-body" id="purchaseDetails">
+                <!-- Detalhes da compra -->
             </div>
-            
             <div class="modal-footer">
                 <button class="btn-whatsapp" onclick="openWhatsApp()">
-                    <i class="fab fa-whatsapp"></i> Finalizar via WhatsApp
+                    <i class="fab fa-whatsapp"></i> Falar no WhatsApp
                 </button>
                 <button class="btn-discord" onclick="openDiscord()">
-                    <i class="fab fa-discord"></i> Finalizar via Discord
+                    <i class="fab fa-discord"></i> Falar no Discord
                 </button>
             </div>
         </div>
