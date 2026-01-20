@@ -3,46 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeuroWaveX • Bots Discord Premium</title>
+    <title>WaveX • Bots Discord Premium</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="https://media.discordapp.net/attachments/1463243688015560853/1463249298945867837/NeuroWaveX_Perfil.png?ex=6971249a&is=696fd31a&hm=0e3463134739eb96c15682d8f0d0278669e9a4234870f957198d3f2b57dc1d07&=&format=webp&quality=lossless&width=915&height=610">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/discord-logo.png">
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Navbar Simplificada -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
                 <div class="logo">
                     <span class="logo-icon">⚡</span>
-                    <span class="logo-text">Neuro<span class="logo-highlight">WaveX</span></span>
+                    <span class="logo-text">Wave<span class="logo-highlight">X</span></span>
                 </div>
             </div>
             
-            <div class="nav-links">
-                <a href="#home">Início</a>
-                <a href="#stats">Estatísticas</a>
-                <a href="#why">Por que nós?</a>
-                <a href="#story">História</a>
-                <a href="#products">Produtos</a>
-                <a href="#pricing">Planos</a>
-                <a href="#contact">Contato</a>
-                <a href="https://discord.gg/f7Dm6ufZJN" class="btn-discord" target="_blank">
-                    <i class="fab fa-discord"></i> Discord
-                </a>
-            </div>
-            
-            <button class="menu-toggle" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
+            <button class="btn-acquire" onclick="openPurchaseModal()">
+                <i class="fas fa-shopping-cart"></i> Adquira o seu!
             </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
@@ -51,18 +38,37 @@
                 
                 <h1 class="hero-title">
                     Potencialize seu servidor com
-                    <span class="gradient-text">Inteligência Artificial</span>
+                    <span class="gradient-text">WaveX</span>
                 </h1>
                 
                 <p class="hero-subtitle">
                     Sistemas automatizados de tickets, sets, cargos e moderação.
-                    Escolha módulos individuais ou o pacote completo.
+                    Tudo em um só bot, simples e poderoso.
                 </p>
                 
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>Sistema de Tickets</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-user-tag"></i>
+                        <span>Sistema de Sets</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users-cog"></i>
+                        <span>Controle de Cargos</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Moderação Avançada</span>
+                    </div>
+                </div>
+                
                 <div class="hero-buttons">
-                    <a href="#pricing" class="btn-primary">
-                        <i class="fas fa-rocket"></i> Ver Planos
-                    </a>
+                    <button class="btn-primary" onclick="openPurchaseModal()">
+                        <i class="fas fa-rocket"></i> Adquirir Agora
+                    </button>
                     <a href="https://discord.com/oauth2/authorize?client_id=SEU_CLIENT_ID" class="btn-secondary" target="_blank">
                         <i class="fas fa-robot"></i> Testar Demo
                     </a>
@@ -70,38 +76,53 @@
             </div>
             
             <div class="hero-visual">
-                <div class="bot-interface">
-                    <div class="bot-header">
-                        <div class="bot-dot red"></div>
-                        <div class="bot-dot yellow"></div>
-                        <div class="bot-dot green"></div>
-                        <span>NeuroWaveX Dashboard</span>
+                <div class="bot-demo">
+                    <div class="demo-header">
+                        <div class="demo-dots">
+                            <span class="demo-dot red"></span>
+                            <span class="demo-dot yellow"></span>
+                            <span class="demo-dot green"></span>
+                        </div>
+                        <span class="demo-title">WaveX Dashboard</span>
                     </div>
-                    <div class="bot-content">
-                        <div class="bot-module active">
-                            <i class="fas fa-ticket-alt"></i>
-                            <span>Tickets</span>
+                    
+                    <div class="demo-content">
+                        <div class="demo-message left">
+                            <div class="message-avatar">W</div>
+                            <div class="message-content">
+                                <strong>WaveX Bot</strong>
+                                <p>Olá! Eu sou o WaveX, seu assistente de servidor. O que posso ajudar hoje?</p>
+                            </div>
                         </div>
-                        <div class="bot-module">
-                            <i class="fas fa-user-tag"></i>
-                            <span>Sets</span>
+                        
+                        <div class="demo-message right">
+                            <div class="message-content">
+                                <strong>Você</strong>
+                                <p>Quero configurar o sistema de tickets!</p>
+                            </div>
+                            <div class="message-avatar">V</div>
                         </div>
-                        <div class="bot-module">
-                            <i class="fas fa-users-cog"></i>
-                            <span>Cargos</span>
+                        
+                        <div class="demo-message left">
+                            <div class="message-avatar">W</div>
+                            <div class="message-content">
+                                <strong>WaveX Bot</strong>
+                                <p>Perfeito! Use <code>!setup tickets</code> e o sistema será configurado automaticamente. 🎫</p>
+                            </div>
                         </div>
-                        <div class="bot-module">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Moderação</span>
-                        </div>
+                    </div>
+                    
+                    <div class="demo-input">
+                        <input type="text" placeholder="Digite !setup tickets para começar..." disabled>
+                        <button disabled><i class="fas fa-paper-plane"></i></button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Live Stats Section -->
-    <section id="stats" class="live-stats">
+    <!-- Stats Section -->
+    <section class="live-stats">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-card">
@@ -109,40 +130,28 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-number" id="activeUsers">1,247</h3>
-                        <p class="stat-label">Usuários Ativos</p>
-                        <div class="stat-trend up">
-                            <i class="fas fa-arrow-up"></i>
-                            <span>+12% hoje</span>
-                        </div>
+                        <h3 class="stat-number" id="activeUsers">500+</h3>
+                        <p class="stat-label">Servidores Ativos</p>
                     </div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-bolt"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-number" id="totalSales">589</h3>
-                        <p class="stat-label">Bots Vendidos</p>
-                        <div class="stat-trend up">
-                            <i class="fas fa-arrow-up"></i>
-                            <span>+8 esta semana</span>
-                        </div>
+                        <h3 class="stat-number" id="uptime">99.9%</h3>
+                        <p class="stat-label">Uptime Garantido</p>
                     </div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <i class="fas fa-server"></i>
+                        <i class="fas fa-headset"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-number" id="activeBots">2,841</h3>
-                        <p class="stat-label">Bots Online</p>
-                        <div class="stat-trend up">
-                            <i class="fas fa-arrow-up"></i>
-                            <span>99.9% uptime</span>
-                        </div>
+                        <h3 class="stat-number" id="support">24/7</h3>
+                        <p class="stat-label">Suporte</p>
                     </div>
                 </div>
                 
@@ -153,369 +162,64 @@
                     <div class="stat-content">
                         <h3 class="stat-number" id="rating">4.9</h3>
                         <p class="stat-label">Avaliação Média</p>
-                        <div class="stat-trend">
-                            <i class="fas fa-star"></i>
-                            <span>+156 reviews</span>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section id="why" class="why-choose">
+    <!-- Features Section -->
+    <section class="features">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">🤔 Por que escolher a <span class="gradient-text">NeuroWaveX</span>?</h2>
-                <p class="section-subtitle">Descubra o que nos torna diferentes</p>
-            </div>
+            <h2 class="section-title">✨ Tudo o que você precisa em <span class="gradient-text">um só lugar</span></h2>
             
-            <div class="why-grid">
-                <div class="why-card">
-                    <div class="why-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Desempenho Incomparável</h3>
-                    <p>Nossos bots são otimizados para máximo desempenho com 0% de lag, mesmo em servidores com 10k+ membros.</p>
-                    <ul class="why-features">
-                        <li><i class="fas fa-check"></i> Response time < 50ms</li>
-                        <li><i class="fas fa-check"></i> 99.9% Uptime garantido</li>
-                        <li><i class="fas fa-check"></i> Escalabilidade ilimitada</li>
-                    </ul>
-                </div>
-                
-                <div class="why-card">
-                    <div class="why-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Segurança de Nível Empresarial</h3>
-                    <p>Código auditado, proteção contra DDoS, backups automáticos e criptografia de ponta a ponta.</p>
-                    <ul class="why-features">
-                        <li><i class="fas fa-check"></i> Proteção contra exploits</li>
-                        <li><i class="fas fa-check"></i> Backups automáticos</li>
-                        <li><i class="fas fa-check"></i> DDoS Protection</li>
-                    </ul>
-                </div>
-                
-                <div class="why-card">
-                    <div class="why-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>Suporte que Faz a Diferença</h3>
-                    <p>Equipe disponível 24/7 com tempo médio de resposta de 15 minutos. Resolvemos qualquer problema.</p>
-                    <ul class="why-features">
-                        <li><i class="fas fa-check"></i> Suporte 24/7</li>
-                        <li><i class="fas fa-check"></i> Response time < 15min</li>
-                        <li><i class="fas fa-check"></i> Tutoriais em vídeo</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Story Section -->
-    <section id="story" class="our-story">
-        <div class="container">
-            <div class="story-header">
-                <h2 class="section-title">📖 Nossa <span class="gradient-text">História</span></h2>
-                <p class="section-subtitle">De uma ideia simples à referência em bots Discord</p>
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2022 • Janeiro</div>
-                    <div class="timeline-content">
-                        <h3>🌱 O Início</h3>
-                        <p>Tudo começou com um problema: administrar servidores grandes era caótico. Desenvolvemos nosso primeiro sistema de tickets para um servidor de 5k membros.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2022 • Junho</div>
-                    <div class="timeline-content">
-                        <h3>🚀 Primeiro Cliente</h3>
-                        <p>Hospital APP se tornou nosso primeiro cliente oficial. Desenvolvemos sistemas customizados que reduziram o trabalho manual da staff em 80%.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2023 • Março</div>
-                    <div class="timeline-content">
-                        <h3>🏆 Reconhecimento</h3>
-                        <p>Chegamos a 100 servidores ativos. Nossos bots estavam sendo usados em comunidades de até 50k membros com performance impecável.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2023 • Setembro</div>
-                    <div class="timeline-content">
-                        <h3>💼 Expansão</h3>
-                        <p>Lançamos a plataforma modular - agora cada servidor podia escolher exatamente o que precisava, sem pagar por features desnecessárias.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2024 • Hoje</div>
-                    <div class="timeline-content">
-                        <h3>⭐ Referência</h3>
-                        <p>Mais de 500 servidores ativos, 2.8k+ bots online e uma equipe dedicada de 8 desenvolvedores. Continuamos inovando todos os dias.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="products">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">🎮 Nossos <span class="gradient-text">Produtos</span></h2>
-                <p class="section-subtitle">Escolha módulos individuais ou o bot completo</p>
-            </div>
-            
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-icon">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-ticket-alt"></i>
                     </div>
-                    <h3 class="product-title">Sistema de Tickets</h3>
-                    <p class="product-description">
-                        Sistema completo de tickets com painel, fechamento automático, logs, 
-                        múltiplos canais e controle por staff.
-                    </p>
-                    <ul class="product-features">
+                    <h3>Sistema de Tickets</h3>
+                    <p>Sistema completo com painel, fechamento automático, logs e controle por staff.</p>
+                    <ul class="feature-list">
                         <li><i class="fas fa-check"></i> Painel com botão de abertura</li>
                         <li><i class="fas fa-check"></i> Fechamento automático</li>
                         <li><i class="fas fa-check"></i> Sistema de logs completo</li>
-                        <li><i class="fas fa-check"></i> Multi-staff support</li>
-                        <li><i class="fas fa-check"></i> Categorias personalizáveis</li>
                     </ul>
-                    <div class="product-price">
-                        <span class="price">R$ 29,90</span>
-                        <span class="period">/ único</span>
-                    </div>
-                    <a href="#pricing" class="btn-product">
-                        <i class="fas fa-shopping-cart"></i> Comprar Agora
-                    </a>
                 </div>
                 
-                <div class="product-card featured">
-                    <div class="product-badge">MAIS VENDIDO</div>
-                    <div class="product-icon">
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-user-tag"></i>
                     </div>
-                    <h3 class="product-title">Sistema de Sets</h3>
-                    <p class="product-description">
-                        Aprovação automática de sets com alteração de nickname, 
-                        atribuição de cargos e remoção automática de visitante.
-                    </p>
-                    <ul class="product-features">
+                    <h3>Sistema de Sets</h3>
+                    <p>Aprovação automática de sets com alteração de nickname e atribuição de cargos.</p>
+                    <ul class="feature-list">
                         <li><i class="fas fa-check"></i> Modal de coleta de dados</li>
                         <li><i class="fas fa-check"></i> Aprovação/recusa por staff</li>
                         <li><i class="fas fa-check"></i> Alteração automática de nick</li>
-                        <li><i class="fas fa-check"></i> Remoção de cargo visitante</li>
-                        <li><i class="fas fa-check"></i> Verificação de ID único</li>
                     </ul>
-                    <div class="product-price">
-                        <span class="price">R$ 34,90</span>
-                        <span class="period">/ único</span>
-                    </div>
-                    <a href="#pricing" class="btn-product">
-                        <i class="fas fa-bolt"></i> Comprar Agora
-                    </a>
                 </div>
                 
-                <div class="product-card">
-                    <div class="product-icon">
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-users-cog"></i>
                     </div>
-                    <h3 class="product-title">Sistema de Cargos</h3>
-                    <p class="product-description">
-                        Gerenciamento hierárquico de cargos com atribuição automática, 
-                        promoções, permissões e sistema de hierarquia.
-                    </p>
-                    <ul class="product-features">
+                    <h3>Controle de Cargos</h3>
+                    <p>Gerenciamento hierárquico de cargos com atribuição automática e sistema de promoções.</p>
+                    <ul class="feature-list">
                         <li><i class="fas fa-check"></i> Sistema hierárquico</li>
                         <li><i class="fas fa-check"></i> Atribuição automática</li>
                         <li><i class="fas fa-check"></i> Sistema de promoções</li>
-                        <li><i class="fas fa-check"></i> Logs de alterações</li>
-                        <li><i class="fas fa-check"></i> Painel de controle</li>
                     </ul>
-                    <div class="product-price">
-                        <span class="price">R$ 24,90</span>
-                        <span class="period">/ único</span>
-                    </div>
-                    <a href="#pricing" class="btn-product">
-                        <i class="fas fa-shopping-cart"></i> Comprar Agora
-                    </a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">💰 <span class="gradient-text">Planos</span> & Preços</h2>
-                <p class="section-subtitle">Escolha o plano perfeito para seu servidor</p>
             </div>
             
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Módulo Individual</h3>
-                        <div class="pricing-price">
-                            <span class="price">R$ <span id="individualPrice">29,90</span></span>
-                            <span class="period">/ módulo</span>
-                        </div>
-                        <p>Escolha apenas o que precisa</p>
-                    </div>
-                    
-                    <div class="pricing-features">
-                        <div class="feature-selector">
-                            <label class="checkbox">
-                                <input type="checkbox" checked onclick="updatePrice()">
-                                <span class="checkmark"></span>
-                                Sistema de Tickets (+R$ 29,90)
-                            </label>
-                            <label class="checkbox">
-                                <input type="checkbox" onclick="updatePrice()">
-                                <span class="checkmark"></span>
-                                Sistema de Sets (+R$ 34,90)
-                            </label>
-                            <label class="checkbox">
-                                <input type="checkbox" onclick="updatePrice()">
-                                <span class="checkmark"></span>
-                                Sistema de Cargos (+R$ 24,90)
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <a href="#" class="btn-pricing" onclick="addToCart('individual')">
-                        <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-                    </a>
-                </div>
-                
-                <div class="pricing-card featured">
-                    <div class="pricing-badge">ECONOMIZE 30%</div>
-                    <div class="pricing-header">
-                        <h3>Pacote Completo</h3>
-                        <div class="pricing-price">
-                            <span class="price">R$ <span id="completePrice">62,90</span></span>
-                            <span class="period">/ único</span>
-                            <span class="discount">De R$ 89,70</span>
-                        </div>
-                        <p>Todos os módulos + bônus exclusivos</p>
-                    </div>
-                    
-                    <div class="pricing-features">
-                        <p><i class="fas fa-check"></i> Sistema de Tickets</p>
-                        <p><i class="fas fa-check"></i> Sistema de Sets</p>
-                        <p><i class="fas fa-check"></i> Sistema de Cargos</p>
-                        <p><i class="fas fa-check"></i> Sistema de Moderação</p>
-                        <p><i class="fas fa-check"></i> Logs Automáticos</p>
-                        <p><i class="fas fa-check"></i> Dashboard Web</p>
-                        <p><i class="fas fa-check"></i> Suporte Prioritário</p>
-                    </div>
-                    
-                    <a href="#" class="btn-pricing featured" onclick="addToCart('complete')">
-                        <i class="fas fa-bolt"></i> Comprar Pacote
-                    </a>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Bot Personalizado</h3>
-                        <div class="pricing-price">
-                            <span class="price">Sob Consulta</span>
-                        </div>
-                        <p>Quer algo exclusivo?</p>
-                    </div>
-                    
-                    <div class="pricing-features">
-                        <p><i class="fas fa-check"></i> Desenvolvimento exclusivo</p>
-                        <p><i class="fas fa-check"></i> Hosting incluso</p>
-                        <p><i class="fas fa-check"></i> Manutenção mensal</p>
-                        <p><i class="fas fa-check"></i> Updates constantes</p>
-                        <p><i class="fas fa-check"></i> Suporte dedicado</p>
-                    </div>
-                    
-                    <a href="#contact" class="btn-pricing">
-                        <i class="fas fa-comments"></i> Solicitar Orçamento
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2 class="section-title">📞 Entre em <span class="gradient-text">Contato</span></h2>
-                    <p>Tem dúvidas? Quer um orçamento personalizado? Fale com a gente!</p>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <i class="fab fa-discord"></i>
-                            <div>
-                                <h4>Discord</h4>
-                                <p>Suporte imediato via ticket</p>
-                                <a href="https://discord.gg/seu-link" target="_blank">Entrar no Servidor</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>Resposta em até 24h</p>
-                                <a href="mailto:contato@neurowavex.com">contato@neurowavex.com</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <i class="fab fa-whatsapp"></i>
-                            <div>
-                                <h4>WhatsApp</h4>
-                                <p>Atendimento rápido</p>
-                                <a href="https://wa.me/5511999999999" target="_blank">+55 (11) 99999-9999</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="Seu nome" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Seu email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Servidor Discord" required>
-                        </div>
-                        <div class="form-group">
-                            <select required>
-                                <option value="" disabled selected>Selecione o assunto</option>
-                                <option value="orcamento">Orçamento</option>
-                                <option value="duvida">Dúvida sobre produtos</option>
-                                <option value="suporte">Suporte técnico</option>
-                                <option value="personalizado">Bot personalizado</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Descreva sua necessidade..." rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">
-                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
-                        </button>
-                    </form>
-                </div>
+            <div class="cta-section">
+                <h3>Pronto para transformar seu servidor?</h3>
+                <p>Adquira agora e tenha todas essas features em um só bot!</p>
+                <button class="btn-cta" onclick="openPurchaseModal()">
+                    <i class="fas fa-bolt"></i> Adquirir WaveX
+                </button>
             </div>
         </div>
     </section>
@@ -527,61 +231,180 @@
                 <div class="footer-brand">
                     <div class="logo">
                         <span class="logo-icon">⚡</span>
-                        <span class="logo-text">Neuro<span class="logo-highlight">WaveX</span></span>
+                        <span class="logo-text">Wave<span class="logo-highlight">X</span></span>
                     </div>
-                    <p>Bots Discord profissionais para servidores de sucesso.</p>
+                    <p>O bot completo para seu servidor Discord</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-discord"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://discord.gg/seu-link" target="_blank">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://github.com/seu-user" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:contato@wavex.com">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                     </div>
                 </div>
                 
-                <div class="footer-links">
-                    <h4>Produtos</h4>
-                    <a href="#products">Sistema de Tickets</a>
-                    <a href="#products">Sistema de Sets</a>
-                    <a href="#products">Sistema de Cargos</a>
-                    <a href="#pricing">Pacote Completo</a>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Links Rápidos</h4>
-                    <a href="#home">Início</a>
-                    <a href="#why">Por que nós?</a>
-                    <a href="#story">História</a>
-                    <a href="#pricing">Planos</a>
-                </div>
-                
-                <div class="footer-newsletter">
-                    <h4>Newsletter</h4>
-                    <p>Receba novidades e ofertas exclusivas</p>
-                    <div class="newsletter-form">
-                        <input type="email" placeholder="Seu email">
-                        <button type="submit">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
+                <div class="footer-info">
+                    <h4>Suporte</h4>
+                    <p>Precisa de ajuda? Entre em contato:</p>
+                    <div class="contact-info">
+                        <p><i class="fab fa-discord"></i> Discord: wavex.support</p>
+                        <p><i class="fas fa-envelope"></i> Email: contato@wavex.com</p>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 NeuroWaveX. Todos os direitos reservados.</p>
-                <div class="footer-policies">
-                    <a href="#">Termos de Uso</a>
-                    <a href="#">Política de Privacidade</a>
-                    <a href="#">Política de Reembolso</a>
-                </div>
+                <p>&copy; 2024 WaveX. Todos os direitos reservados.</p>
+                <p>Desenvolvido com ❤️ para a comunidade Discord</p>
             </div>
         </div>
     </footer>
 
-    <!-- Online Users Badge -->
-    <div class="online-users" id="onlineUsers">
-        <i class="fas fa-user-friends"></i>
-        <span class="online-count">24</span>
-        <span>pessoas online</span>
+    <!-- Modal de Compra -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-shopping-cart"></i> Adquira o WaveX</h2>
+                <button class="close-modal" onclick="closePurchaseModal()">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="pricing-options">
+                    <!-- Plano Básico -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>WaveX Básico</h3>
+                            <div class="price">
+                                <span class="amount">R$ 49,90</span>
+                                <span class="period">/ único</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pricing-features">
+                            <p><i class="fas fa-check"></i> Sistema de Tickets</p>
+                            <p><i class="fas fa-check"></i> Sistema de Sets</p>
+                            <p><i class="fas fa-check"></i> Controle Básico de Cargos</p>
+                            <p><i class="fas fa-check"></i> Suporte por Email</p>
+                            <p><i class="fas fa-times"></i> Sistema de Moderação</p>
+                            <p><i class="fas fa-times"></i> Dashboard Web</p>
+                        </div>
+                        
+                        <button class="btn-select" onclick="selectPlan('basic')">
+                            <i class="fas fa-check"></i> Selecionar
+                        </button>
+                    </div>
+                    
+                    <!-- Plano Pro (Recomendado) -->
+                    <div class="pricing-card featured">
+                        <div class="plan-badge">MAIS POPULAR</div>
+                        <div class="pricing-header">
+                            <h3>WaveX Pro</h3>
+                            <div class="price">
+                                <span class="amount">R$ 89,90</span>
+                                <span class="period">/ único</span>
+                            </div>
+                            <p class="savings">Economize 40%</p>
+                        </div>
+                        
+                        <div class="pricing-features">
+                            <p><i class="fas fa-check"></i> Sistema de Tickets Completo</p>
+                            <p><i class="fas fa-check"></i> Sistema de Sets Avançado</p>
+                            <p><i class="fas fa-check"></i> Controle Completo de Cargos</p>
+                            <p><i class="fas fa-check"></i> Sistema de Moderação</p>
+                            <p><i class="fas fa-check"></i> Dashboard Web</p>
+                            <p><i class="fas fa-check"></i> Suporte Prioritário</p>
+                        </div>
+                        
+                        <button class="btn-select featured" onclick="selectPlan('pro')">
+                            <i class="fas fa-bolt"></i> Escolher Pro
+                        </button>
+                    </div>
+                    
+                    <!-- Plano Enterprise -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>WaveX Enterprise</h3>
+                            <div class="price">
+                                <span class="amount">R$ 149,90</span>
+                                <span class="period">/ único</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pricing-features">
+                            <p><i class="fas fa-check"></i> Todos os recursos Pro</p>
+                            <p><i class="fas fa-check"></i> Bot Personalizado</p>
+                            <p><i class="fas fa-check"></i> Hosting Incluso</p>
+                            <p><i class="fas fa-check"></i> Manutenção Mensal</p>
+                            <p><i class="fas fa-check"></i> Suporte Dedicado 24/7</p>
+                            <p><i class="fas fa-check"></i> Updates Ilimitados</p>
+                        </div>
+                        
+                        <button class="btn-select" onclick="selectPlan('enterprise')">
+                            <i class="fas fa-crown"></i> Personalizar
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="payment-methods">
+                    <h3><i class="fas fa-lock"></i> Métodos de Pagamento</h3>
+                    <div class="methods-grid">
+                        <div class="method">
+                            <i class="fab fa-pix"></i>
+                            <span>PIX</span>
+                        </div>
+                        <div class="method">
+                            <i class="fab fa-cc-visa"></i>
+                            <span>Cartão</span>
+                        </div>
+                        <div class="method">
+                            <i class="fab fa-paypal"></i>
+                            <span>PayPal</span>
+                        </div>
+                        <div class="method">
+                            <i class="fab fa-bitcoin"></i>
+                            <span>Crypto</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="guarantee">
+                    <p><i class="fas fa-shield-alt"></i> <strong>Garantia de 7 dias:</strong> Se não gostar, devolvemos seu dinheiro!</p>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn-close" onclick="closePurchaseModal()">
+                    <i class="fas fa-times"></i> Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="confirmModal" class="modal confirm-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-check-circle"></i> Plano Selecionado!</h2>
+                <button class="close-modal" onclick="closeConfirmModal()">&times;</button>
+            </div>
+            
+            <div class="modal-body" id="confirmContent">
+                <!-- Conteúdo será preenchido pelo JavaScript -->
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn-whatsapp" onclick="openWhatsApp()">
+                    <i class="fab fa-whatsapp"></i> Finalizar via WhatsApp
+                </button>
+                <button class="btn-discord" onclick="openDiscord()">
+                    <i class="fab fa-discord"></i> Finalizar via Discord
+                </button>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
