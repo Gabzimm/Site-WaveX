@@ -3,41 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital APP - Bot Discord</title>
+    <title>NeuroWaveX • Bots Discord Premium</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/1462150327070359707/1462151759337361654/ChatGPT_Image_17_de_jan._de_2026_18_28_54.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/discord-logo.png">
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
-            <h1 class="logo">🏥 Hospital APP</h1>
+            <div class="nav-brand">
+                <div class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">Neuro<span class="logo-highlight">WaveX</span></span>
+                </div>
+            </div>
+            
             <div class="nav-links">
                 <a href="#home">Início</a>
+                <a href="#products">Produtos</a>
                 <a href="#features">Recursos</a>
-                <a href="#commands">Comandos</a>
-                <a href="https://discord.gg/seu-link" class="btn-invite" target="_blank">
-                    <i class="fab fa-discord"></i> Entrar no Discord
+                <a href="#pricing">Planos</a>
+                <a href="#contact">Contato</a>
+                <a href="https://discord.gg/seu-link" class="btn-discord" target="_blank">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
+                <a href="#pricing" class="btn-buy">
+                    <i class="fas fa-shopping-cart"></i> Comprar
                 </a>
             </div>
+            
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <h1>Bot de Administração Completo para Discord</h1>
-            <p>Sistema profissional de tickets, sets, cargos e moderação para servidores de Roleplay</p>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">🚀 BOTS DISCORD PREMIUM</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Potencialize seu servidor com
+                    <span class="gradient-text">Inteligência Artificial</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Sistemas automatizados de tickets, sets, cargos e moderação.
+                    Escolha módulos individuais ou o pacote completo.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>500+</h3>
+                        <p>Servidores Ativos</p>
+                    </div>
+                    <div class="stat">
+                        <h3>99.9%</h3>
+                        <p>Uptime</p>
+                    </div>
+                    <div class="stat">
+                        <h3>24/7</h3>
+                        <p>Suporte</p>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#pricing" class="btn-primary">
+                        <i class="fas fa-rocket"></i> Ver Planos
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        <i class="fas fa-play-circle"></i> Ver Demonstração
+                    </a>
+                </div>
+            </div>
             
-            <div class="hero-buttons">
-                <a href="https://discord.com/oauth2/authorize?client_id=SEU_CLIENT_ID&scope=bot&permissions=8" 
-                   class="btn-primary" target="_blank">
-                    <i class="fas fa-robot"></i> Adicionar ao Discord
-                </a>
-                <a href="#features" class="btn-secondary">
-                    <i class="fas fa-star"></i> Ver Recursos
-                </a>
+            <div class="hero-visual">
+                <div class="bot-interface">
+                    <div class="bot-header">
+                        <div class="bot-dot red"></div>
+                        <div class="bot-dot yellow"></div>
+                        <div class="bot-dot green"></div>
+                        <span>NeuroWaveX Dashboard</span>
+                    </div>
+                    <div class="bot-content">
+                        <div class="bot-module active">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Tickets System</span>
+                        </div>
+                        <div class="bot-module">
+                            <i class="fas fa-user-tag"></i>
+                            <span>Sets Manager</span>
+                        </div>
+                        <div class="bot-module">
+                            <i class="fas fa-users-cog"></i>
+                            <span>Roles Control</span>
+                        </div>
+                        <div class="bot-module">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Moderation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🎮 Nossos <span class="gradient-text">Produtos</span></h2>
+                <p class="section-subtitle">Escolha módulos individuais ou o bot completo</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1: Tickets -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <h3 class="product-title">Sistema de Tickets</h3>
+                    <p class="product-description">
+                        Sistema completo de tickets com painel, fechamento automático, logs, 
+                        múltiplos canais e controle por staff.
+                    </p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Painel com botão de abertura</li>
+                        <li><i class="fas fa-check"></i> Fechamento automático</li>
+                        <li><i class="fas fa-check"></i> Sistema de logs completo</li>
+                        <li><i class="fas fa-check"></i> Multi-staff support</li>
+                        <li><i class="fas fa-check"></i> Categorias personalizáveis</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price">R$ 29,90</span>
+                        <span class="period">/ único</span>
+                    </div>
+                    <a href="#pricing" class="btn-product">
+                        <i class="fas fa-shopping-cart"></i> Comprar Agora
+                    </a>
+                </div>
+                
+                <!-- Product 2: Sets -->
+                <div class="product-card featured">
+                    <div class="product-badge">MAIS VENDIDO</div>
+                    <div class="product-icon">
+                        <i class="fas fa-user-tag"></i>
+                    </div>
+                    <h3 class="product-title">Sistema de Sets</h3>
+                    <p class="product-description">
+                        Aprovação automática de sets com alteração de nickname, 
+                        atribuição de cargos e remoção automática de visitante.
+                    </p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Modal de coleta de dados</li>
+                        <li><i class="fas fa-check"></i> Aprovação/recusa por staff</li>
+                        <li><i class="fas fa-check"></i> Alteração automática de nick</li>
+                        <li><i class="fas fa-check"></i> Remoção de cargo visitante</li>
+                        <li><i class="fas fa-check"></i> Verificação de ID único</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price">R$ 34,90</span>
+                        <span class="period">/ único</span>
+                    </div>
+                    <a href="#pricing" class="btn-product">
+                        <i class="fas fa-bolt"></i> Comprar Agora
+                    </a>
+                </div>
+                
+                <!-- Product 3: Cargos -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3 class="product-title">Sistema de Cargos</h3>
+                    <p class="product-description">
+                        Gerenciamento hierárquico de cargos com atribuição automática, 
+                        promoções, permissões e sistema de hierarquia.
+                    </p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Sistema hierárquico</li>
+                        <li><i class="fas fa-check"></i> Atribuição automática</li>
+                        <li><i class="fas fa-check"></i> Sistema de promoções</li>
+                        <li><i class="fas fa-check"></i> Logs de alterações</li>
+                        <li><i class="fas fa-check"></i> Painel de controle</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price">R$ 24,90</span>
+                        <span class="period">/ único</span>
+                    </div>
+                    <a href="#pricing" class="btn-product">
+                        <i class="fas fa-shopping-cart"></i> Comprar Agora
+                    </a>
+                </div>
+            </div>
+            
+            <div class="products-note">
+                <p><i class="fas fa-info-circle"></i> <strong>Pacote Completo:</strong> Compre todos os módulos juntos e economize 30%!</p>
             </div>
         </div>
     </section>
@@ -45,76 +214,240 @@
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">🎮 Recursos do Bot</h2>
+            <div class="section-header">
+                <h2 class="section-title">⚡ Por que escolher a <span class="gradient-text">NeuroWaveX</span>?</h2>
+            </div>
             
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-item">
                     <div class="feature-icon">
-                        <i class="fas fa-ticket-alt"></i>
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>Sistema de Tickets</h3>
-                    <p>Criação automática de tickets, fechamento, reabertura e logs completos.</p>
+                    <h3>Instalação em 5 Minutos</h3>
+                    <p>Configure seu bot em menos de 5 minutos com nosso sistema automatizado.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-tag"></i>
-                    </div>
-                    <h3>Sistema de Sets</h3>
-                    <p>Aprovação de sets com alteração de nickname e atribuição automática de cargos.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users-cog"></i>
-                    </div>
-                    <h3>Controle de Cargos</h3>
-                    <p>Gerenciamento hierárquico de cargos com permissões automáticas.</p>
-                </div>
-                
-                <div class="feature-card">
+                <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Moderação Avançada</h3>
-                    <p>Ferramentas completas de moderação com sistema de advertências.</p>
+                    <h3>Segurança Máxima</h3>
+                    <p>Código seguro e otimizado com proteção contra abusos e exploits.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>100% Customizável</h3>
+                    <p>Personalize cores, textos, permissões e muito mais.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Suporte 24/7</h3>
+                    <p>Nossa equipe está disponível a qualquer hora para ajudar.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Atualizações Constantes</h3>
+                    <p>Novos recursos e melhorias regularmente sem custo adicional.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Código Limpo</h3>
+                    <p>Código bem documentado e organizado para fácil manutenção.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Commands Section -->
-    <section id="commands" class="features">
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
         <div class="container">
-            <h2 class="section-title">⚙️ Comandos Principais</h2>
+            <div class="section-header">
+                <h2 class="section-title">💰 <span class="gradient-text">Planos</span> & Preços</h2>
+                <p class="section-subtitle">Escolha o plano perfeito para seu servidor</p>
+            </div>
             
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3><i class="fas fa-ticket-alt"></i> Tickets</h3>
-                    <p><code>!setup_tickets</code> - Configura o sistema</p>
-                    <p><code>!ticket_info</code> - Informações do ticket</p>
-                    <p><code>!fechar_ticket</code> - Fecha ticket atual</p>
+            <div class="pricing-switch">
+                <span class="switch-label">Mensal</span>
+                <label class="switch">
+                    <input type="checkbox" id="pricingToggle" onclick="togglePricing()">
+                    <span class="slider"></span>
+                </label>
+                <span class="switch-label active">Único</span>
+            </div>
+            
+            <div class="pricing-grid">
+                <!-- Plano Individual -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Módulo Individual</h3>
+                        <div class="pricing-price">
+                            <span class="price">R$ <span id="individualPrice">29,90</span></span>
+                            <span class="period">/ módulo</span>
+                        </div>
+                        <p>Escolha apenas o que precisa</p>
+                    </div>
+                    
+                    <div class="pricing-features">
+                        <div class="feature-selector">
+                            <label class="checkbox">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                Sistema de Tickets (+R$ 29,90)
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                Sistema de Sets (+R$ 34,90)
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                Sistema de Cargos (+R$ 24,90)
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn-pricing" onclick="addToCart('individual')">
+                        <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+                    </a>
                 </div>
                 
-                <div class="feature-card">
-                    <h3><i class="fas fa-user-tag"></i> Sets</h3>
-                    <p><code>!setup_set</code> - Painel de sets</p>
-                    <p><code>!check_id [id]</code> - Verifica ID</p>
-                    <p><code>!sets_pendentes</code> - Pedidos pendentes</p>
+                <!-- Plano Completo -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">ECONOMIZE 30%</div>
+                    <div class="pricing-header">
+                        <h3>Pacote Completo</h3>
+                        <div class="pricing-price">
+                            <span class="price">R$ <span id="completePrice">62,90</span></span>
+                            <span class="period">/ único</span>
+                            <span class="discount">De R$ 89,70</span>
+                        </div>
+                        <p>Todos os módulos + bônus exclusivos</p>
+                    </div>
+                    
+                    <div class="pricing-features">
+                        <p><i class="fas fa-check"></i> Sistema de Tickets</p>
+                        <p><i class="fas fa-check"></i> Sistema de Sets</p>
+                        <p><i class="fas fa-check"></i> Sistema de Cargos</p>
+                        <p><i class="fas fa-check"></i> Sistema de Moderação</p>
+                        <p><i class="fas fa-check"></i> Logs Automáticos</p>
+                        <p><i class="fas fa-check"></i> Dashboard Web</p>
+                        <p><i class="fas fa-check"></i> Suporte Prioritário</p>
+                    </div>
+                    
+                    <a href="#" class="btn-pricing featured" onclick="addToCart('complete')">
+                        <i class="fas fa-bolt"></i> Comprar Pacote
+                    </a>
                 </div>
                 
-                <div class="feature-card">
-                    <h3><i class="fas fa-users-cog"></i> Administração</h3>
-                    <p><code>!setup_cargos</code> - Sistema de cargos</p>
-                    <p><code>!limpar [n]</code> - Limpa mensagens</p>
-                    <p><code>!ban @usuário</code> - Banimento</p>
+                <!-- Plano Personalizado -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Bot Personalizado</h3>
+                        <div class="pricing-price">
+                            <span class="price">Sob Consulta</span>
+                        </div>
+                        <p>Quer algo exclusivo?</p>
+                    </div>
+                    
+                    <div class="pricing-features">
+                        <p><i class="fas fa-check"></i> Desenvolvimento exclusivo</p>
+                        <p><i class="fas fa-check"></i> Hosting incluso</p>
+                        <p><i class="fas fa-check"></i> Manutenção mensal</p>
+                        <p><i class="fas fa-check"></i> Updates constantes</p>
+                        <p><i class="fas fa-check"></i> Suporte dedicado</p>
+                    </div>
+                    
+                    <a href="#contact" class="btn-pricing">
+                        <i class="fas fa-comments"></i> Solicitar Orçamento
+                    </a>
+                </div>
+            </div>
+            
+            <div class="pricing-info">
+                <p><i class="fas fa-lock"></i> <strong>Pagamento Seguro:</strong> Aceitamos PIX, Cartão, PayPal e Cryptomoedas</p>
+                <p><i class="fas fa-sync-alt"></i> <strong>Garantia:</strong> 7 dias para reembolso se não estiver satisfeito</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="section-title">📞 Entre em <span class="gradient-text">Contato</span></h2>
+                    <p>Tem dúvidas? Quer um orçamento personalizado? Fale com a gente!</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fab fa-discord"></i>
+                            <div>
+                                <h4>Discord</h4>
+                                <p>Suporte imediato via ticket</p>
+                                <a href="https://discord.gg/seu-link" target="_blank">Entrar no Servidor</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>Resposta em até 24h</p>
+                                <a href="mailto:contato@neurowavex.com">contato@neurowavex.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <p>Atendimento rápido</p>
+                                <a href="https://wa.me/5511999999999" target="_blank">+55 (11) 99999-9999</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <h3><i class="fas fa-cogs"></i> Utilidade</h3>
-                    <p><code>!ping</code> - Latência do bot</p>
-                    <p><code>!ajuda</code> - Menu de ajuda</p>
-                    <p><code>!info</code> - Informações do servidor</p>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Seu email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Servidor Discord" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="" disabled selected>Selecione o assunto</option>
+                                <option value="orcamento">Orçamento</option>
+                                <option value="duvida">Dúvida sobre produtos</option>
+                                <option value="suporte">Suporte técnico</option>
+                                <option value="personalizado">Bot personalizado</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Descreva sua necessidade..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -125,34 +458,79 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <h3>🏥 Hospital APP</h3>
-                    <p>Bot profissional para servidores Discord</p>
+                    <div class="logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">Neuro<span class="logo-highlight">WaveX</span></span>
+                    </div>
+                    <p>Bots Discord profissionais para servidores de sucesso.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>Links</h4>
-                    <a href="#home">Início</a>
-                    <a href="#features">Recursos</a>
-                    <a href="#commands">Comandos</a>
-                    <a href="https://github.com/Gabzimm" target="_blank">GitHub</a>
+                    <h4>Produtos</h4>
+                    <a href="#products">Sistema de Tickets</a>
+                    <a href="#products">Sistema de Sets</a>
+                    <a href="#products">Sistema de Cargos</a>
+                    <a href="#pricing">Pacote Completo</a>
                 </div>
                 
-                <div class="footer-discord">
-                    <h4>Status</h4>
-                    <p>Bot: <span class="status-online">● Online</span></p>
-                    <p>Uptime: 24/7</p>
-                    <a href="https://discord.gg/seu-link" target="_blank">
-                        <i class="fab fa-discord"></i> Suporte
-                    </a>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <a href="#home">Início</a>
+                    <a href="#features">Recursos</a>
+                    <a href="#pricing">Planos</a>
+                    <a href="#contact">Contato</a>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Receba novidades e ofertas exclusivas</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Seu email">
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>© 2024 Hospital APP Bot. Todos os direitos reservados.</p>
-                <p>Desenvolvido por Gabzimm ❤️</p>
+                <p>&copy; 2024 NeuroWaveX. Todos os direitos reservados.</p>
+                <div class="footer-policies">
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Política de Reembolso</a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Carrinho</h3>
+                <button class="close-modal" onclick="closeCart()">&times;</button>
+            </div>
+            <div class="modal-body" id="cartItems">
+                <!-- Itens serão adicionados aqui -->
+            </div>
+            <div class="modal-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">R$ 0,00</span>
+                </div>
+                <button class="btn-checkout">
+                    <i class="fas fa-lock"></i> Finalizar Compra
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
