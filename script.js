@@ -2,11 +2,19 @@
 document.addEventListener('DOMContentLoaded', function() {
     initStats();
     setupEventListeners();
+    simulateOnlineUsers();
+    observeElements();
 });
 
 // Configurar event listeners
 function setupEventListeners() {
-    // Smooth scroll para links internos
+    // Menu mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleMenu);
+    }
+    
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -19,186 +27,197 @@ function setupEventListeners() {
                     top: targetElement.offsetTop - 100,
                     behavior: 'smooth'
                 });
+                
+                // Fechar menu mobile
+                const navLinks = document.querySelector('.nav-links');
+                if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
             }
         });
     });
     
-    // Fechar modal ao clicar fora
-    window.addEventListener('click', function(event) {
-        const purchaseModal = document.getElementById('purchaseModal');
-        const confirmModal = document.getElementById('confirmModal');
-        
-        if (event.target === purchaseModal) {
-            closePurchaseModal();
-        }
-        
-        if (event.target === confirmModal) {
-            closeConfirmModal();
-        }
-    });
-}
-
-// Estatísticas animadas
-function initStats() {
-    const stats = {
-        activeUsers: 500,
-        uptime: 99.9,
-        support: 24,
-        rating: 4.9
-    };
+    // Formulário de contato
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            contactForm.reset();
+        });
+    }
     
-    // Animar números
-    animateCounter('activeUsers', stats.activeUsers, '+');
-    animateCounter('uptime', stats.uptime, '%', 1);
-    animateCounter('support', stats.support, '/7');
-    animateCounter('rating', stats.rating, '', 1);
+    // Newsletter
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        const newsletterBtn = newsletterForm.querySelector('button');
+        newsletterBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input').value;
+            if (email && email.includes('@')) {
+                alert('Obrigado por se inscrever! Você receberá nossas novidades.');
+                newsletterForm.querySelector('input').value = '';
+            } else {
+                alert('Por favor, insira um email válido.');
+            }
+        });
+    }
 }
 
-function animateCounter(elementId, finalValue, suffix = '', decimals = 0) {
+// Menu mobile
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+}
+
+// Estatísticas dinâmicas
+const stats = {
+    activeUsers: 1247,
+    totalSales: 589,
+    activeBots: 2841,
+    rating: 4.9
+};
+
+function initStats() {
+    // Animar números iniciais
+    animateCounter('activeUsers', stats.activeUsers);
+    animateCounter('totalSales', stats.totalSales);
+    animateCounter('activeBots', stats.activeBots);
+    
+    // Atualizar periodicamente
+    setInterval(updateStats, 8000);
+}
+
+function animateCounter(elementId, finalValue) {
     const element = document.getElementById(elementId);
     if (!element) return;
     
-    let startValue = 0;
+    let start = 0;
     const duration = 2000;
     const increment = finalValue / (duration / 16);
-    
     const timer = setInterval(() => {
-        startValue += increment;
-        if (startValue >= finalValue) {
-            element.textContent = finalValue.toFixed(decimals) + suffix;
+        start += increment;
+        if (start >= finalValue) {
+            element.textContent = finalValue.toLocaleString();
+            element.classList.add('animated');
             clearInterval(timer);
         } else {
-            element.textContent = startValue.toFixed(decimals) + suffix;
+            element.textContent = Math.floor(start).toLocaleString();
         }
     }, 16);
 }
 
-// Modal de Compra
-function openPurchaseModal() {
-    const modal = document.getElementById('purchaseModal');
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+function updateStats() {
+    // Pequenas variações aleatórias
+    const variations = {
+        activeUsers: Math.floor(Math.random() * 20) - 10,
+        totalSales: Math.floor(Math.random() * 3),
+        activeBots: Math.floor(Math.random() * 30) - 15
+    };
+    
+    // Atualizar valores
+    stats.activeUsers = Math.max(1200, stats.activeUsers + variations.activeUsers);
+    stats.totalSales += variations.totalSales;
+    stats.activeBots = Math.max(2800, stats.activeBots + variations.activeBots);
+    
+    // Atualizar display (sem animação para não distrair)
+    const activeUsersEl = document.getElementById('activeUsers');
+    const totalSalesEl = document.getElementById('totalSales');
+    const activeBotsEl = document.getElementById('activeBots');
+    
+    if (activeUsersEl) activeUsersEl.textContent = stats.activeUsers.toLocaleString();
+    if (totalSalesEl) totalSalesEl.textContent = stats.totalSales.toLocaleString();
+    if (activeBotsEl) activeBotsEl.textContent = stats.activeBots.toLocaleString();
 }
 
-function closePurchaseModal() {
-    const modal = document.getElementById('purchaseModal');
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
+// Simular usuários online
+function simulateOnlineUsers() {
+    const onlineUsers = document.getElementById('onlineUsers');
+    if (!onlineUsers) return;
+    
+    setInterval(() => {
+        const count = Math.floor(Math.random() * 15) + 20; // 20-35 pessoas
+        const countEl = onlineUsers.querySelector('.online-count');
+        if (countEl) {
+            countEl.textContent = count;
+        }
+    }, 15000);
 }
 
-// Selecionar Plano
-function selectPlan(planType) {
-    let planInfo = {};
-    
-    switch(planType) {
-        case 'basic':
-            planInfo = {
-                name: 'WaveX Básico',
-                price: 'R$ 49,90',
-                features: [
-                    'Sistema de Tickets',
-                    'Sistema de Sets',
-                    'Controle Básico de Cargos',
-                    'Suporte por Email'
-                ]
-            };
-            break;
-            
-        case 'pro':
-            planInfo = {
-                name: 'WaveX Pro',
-                price: 'R$ 89,90',
-                features: [
-                    'Sistema de Tickets Completo',
-                    'Sistema de Sets Avançado',
-                    'Controle Completo de Cargos',
-                    'Sistema de Moderação',
-                    'Dashboard Web',
-                    'Suporte Prioritário'
-                ]
-            };
-            break;
-            
-        case 'enterprise':
-            planInfo = {
-                name: 'WaveX Enterprise',
-                price: 'R$ 149,90',
-                features: [
-                    'Todos os recursos Pro',
-                    'Bot Personalizado',
-                    'Hosting Incluso',
-                    'Manutenção Mensal',
-                    'Suporte Dedicado 24/7',
-                    'Updates Ilimitados'
-                ]
-            };
-            break;
-    }
-    
-    // Fechar modal de compra
-    closePurchaseModal();
-    
-    // Mostrar modal de confirmação
-    showConfirmModal(planInfo);
-}
-
-// Modal de Confirmação
-function showConfirmModal(planInfo) {
-    const modal = document.getElementById('confirmModal');
-    const content = document.getElementById('confirmContent');
-    
-    // Gerar conteúdo do plano selecionado
-    let featuresHTML = '';
-    planInfo.features.forEach(feature => {
-        featuresHTML += `<p><i class="fas fa-check"></i> ${feature}</p>`;
+// Observar elementos para animação
+function observeElements() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     });
     
-    content.innerHTML = `
-        <div class="selected-plan">
-            <h3>${planInfo.name}</h3>
-            <div class="plan-price">
-                <span class="amount">${planInfo.price}</span>
-                <span class="period">/ único</span>
-            </div>
-            
-            <div class="plan-features">
-                ${featuresHTML}
-            </div>
-            
-            <p class="plan-instructions">
-                <i class="fas fa-info-circle"></i>
-                Escolha como deseja finalizar sua compra:
-            </p>
-        </div>
-    `;
+    // Observar cards e timeline
+    document.querySelectorAll('.product-card, .why-card, .pricing-card, .timeline-item').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Atualizar preço do plano individual
+function updatePrice() {
+    const checkboxes = document.querySelectorAll('.feature-selector input[type="checkbox"]');
+    let total = 0;
     
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            const label = checkbox.nextElementSibling.textContent;
+            const priceMatch = label.match(/R\$ (\d+,\d+)/);
+            if (priceMatch) {
+                const price = parseFloat(priceMatch[1].replace(',', '.'));
+                total += price;
+            }
+        }
+    });
+    
+    const priceElement = document.getElementById('individualPrice');
+    if (priceElement) {
+        priceElement.textContent = total.toFixed(2).replace('.', ',');
+    }
 }
 
-function closeConfirmModal() {
-    const modal = document.getElementById('confirmModal');
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-// WhatsApp e Discord
-function openWhatsApp() {
-    const message = encodeURIComponent("Olá! Gostaria de adquirir o WaveX Bot. Podemos conversar sobre os detalhes?");
-    window.open(`https://wa.me/5511999999999?text=${message}`, '_blank');
-}
-
-function openDiscord() {
-    window.open('https://discord.gg/seu-link', '_blank');
+// Carrinho (simulação)
+function addToCart(type) {
+    let message = '';
+    
+    switch(type) {
+        case 'individual':
+            const checkboxes = document.querySelectorAll('.feature-selector input[type="checkbox"]:checked');
+            if (checkboxes.length === 0) {
+                message = 'Selecione pelo menos um módulo!';
+            } else {
+                message = 'Módulos adicionados ao carrinho!';
+            }
+            break;
+            
+        case 'complete':
+            message = 'Pacote completo adicionado ao carrinho!';
+            break;
+            
+        default:
+            message = 'Produto adicionado ao carrinho!';
+    }
+    
+    showNotification(message);
 }
 
 // Notificação
-function showNotification(message, type = 'success') {
+function showNotification(message) {
     // Criar elemento de notificação
     const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
+    notification.className = 'notification';
     notification.innerHTML = `
-        <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+        <i class="fas fa-check-circle"></i>
         <span>${message}</span>
     `;
     
@@ -226,14 +245,6 @@ function showNotification(message, type = 'success') {
             font-weight: 500;
         }
         
-        .notification.success {
-            background: linear-gradient(135deg, var(--success), #2ECC71);
-        }
-        
-        .notification.error {
-            background: linear-gradient(135deg, var(--danger), #E74C3C);
-        }
-        
         .notification.show {
             transform: translateX(-50%) translateY(0);
         }
@@ -256,10 +267,5 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-// Tecla ESC para fechar modais
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closePurchaseModal();
-        closeConfirmModal();
-    }
-});
+// Inicializar preço
+updatePrice();
