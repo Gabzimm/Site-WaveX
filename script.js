@@ -468,3 +468,164 @@ function showNotification(message) {
 
 // Inicializar preço
 updatePrice();
+// Funções do Modal
+function openModal(modalId) {
+    const modal = document.getElementById(modalId + 'Modal');
+    const overlay = document.getElementById('modalOverlay');
+    
+    if (modal) {
+        modal.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Previne scroll no body
+    }
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId + 'Modal');
+    const overlay = document.getElementById('modalOverlay');
+    
+    if (modal) {
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = ''; // Restaura scroll
+    }
+}
+
+// Fechar modal com ESC
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeModal('compras');
+    }
+});
+
+// Função de preço individual (de volta!)
+function updatePrice() {
+    const checkboxes = document.querySelectorAll('.feature-selector input[type="checkbox"]');
+    let total = 0;
+    
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            const label = checkbox.nextElementSibling.textContent;
+            const priceMatch = label.match(/R\$ (\d+,\d+)/);
+            if (priceMatch) {
+                const price = parseFloat(priceMatch[1].replace(',', '.'));
+                total += price;
+            }
+        }
+    });
+    
+    const priceElement = document.getElementById('individualPrice');
+    if (priceElement) {
+        priceElement.textContent = total.toFixed(2).replace('.', ',');
+    }
+}
+
+// Adicionar módulos individuais ao carrinho
+function addCartIndividual() {
+    const checkboxes = document.querySelectorAll('.feature-selector input[type="checkbox"]:checked');
+    if (checkboxes.length === 0) {
+        showNotification('Selecione pelo menos um módulo!');
+        return;
+    }
+    
+    checkboxes.forEach(checkbox => {
+        const label = checkbox.nextElementSibling.textContent;
+        const productName = label.split('(+')[0].trim();
+        const priceMatch = label.match(/R\$ (\d+,\d+)/);
+        if (priceMatch) {
+            const price = parseFloat(priceMatch[1].replace(',', '.'));
+            addToCart(productName, price, 'individual');
+        }
+    });
+}
+
+// Adicionar evento de clique no overlay para fechar modal
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeModal('compras');
+    }
+});
+
+// Modificar setupEventListeners para incluir modal
+function setupEventListeners() {
+    // Menu mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleMenu);
+    }
+    
+    // Smooth scroll (exceto para botões que abrem modal)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#comprar' || this.classList.contains('btn-buy-now')) {
+                e.preventDefault();
+                openModal('compras');
+                return;
+            }
+            
+            e.preventDefault();
+            if (href === '#') return;
+            
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+                
+                // Fechar menu mobile
+                const navLinks = document.querySelector('.nav-links');
+                if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            }
+        });
+    });
+    
+    // Formulário de contato
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            contactForm.reset();
+        });
+    }
+    
+    // Newsletter
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        const newsletterBtn = newsletterForm.querySelector('button');
+        newsletterBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input').value;
+            if (email && email.includes('@')) {
+                alert('Obrigado por se inscrever! Você receberá nossas novidades.');
+                newsletterForm.querySelector('input').value = '';
+            } else {
+                alert('Por favor, insira um email válido.');
+            }
+        });
+    }
+    
+    // Botões que abrem modal
+    document.querySelectorAll('.btn-buy-now, .btn-primary[onclick*="compras"]').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            if (!this.getAttribute('href') || this.getAttribute('href') === '#comprar') {
+                e.preventDefault();
+                openModal('compras');
+            }
+        });
+    });
+}
+
+// Inicializar preço do módulo individual
+document.addEventListener('DOMContentLoaded', function() {
+    initStats();
+    setupEventListeners();
+    simulateOnlineUsers();
+    observeElements();
+    updateCart();
+    updatePrice(); // Inicializar preço
+});
